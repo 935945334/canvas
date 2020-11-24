@@ -1,0 +1,15 @@
+{
+    
+    "GameChip":
+    {
+        "savedData":{
+            "selectedSprite": "-1",
+            "selectedPalette": "-1",
+            "selectedColor": "-1",
+            "rootDirectory": "/Workspace/MyGame/MyGame/",
+            "sessionID": "202004111357032385",
+            "selectedSpritePage": "1",
+            "selectedPalettePage": "1"
+        }
+    }
+}

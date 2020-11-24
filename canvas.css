@@ -1,0 +1,277 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+img{
+	pointer-events: none;
+}
+html{
+	width: 100%;
+	height: 100%;
+	background: #32445a;
+	cursor:url(imges/pen.ico),auto;
+}
+body{
+	width: 100%;
+	height: 100%;
+	font-size: 48px;
+	overflow-x: hidden;
+    overflow-y: hidden;
+}
+#Btn{
+	width: 48px;
+	height: 406px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	float: left;
+	position: absolute;
+	top: 104px;
+	left: 20px;
+}
+.Btn-div{
+	width: 48px;
+	height: 48px;
+}
+#canvas{
+	position: absolute;
+	top: 84px;
+	left: 68px;
+	margin-top: 20px;
+	margin-left: 20px;
+	display: -webkit-flex;
+    display: flex;
+}
+#box-canvas{
+	
+}
+#box-Palette{
+	margin-left: 20px;
+}
+#Palette{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: flex-start;
+    align-content: flex-start;
+}
+#canvas-body{
+	/*display: -webkit-flex;
+    display: flex;*/
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+    pointer-events: none;
+}
+.canvas-div{
+	width: 1em;
+	height: 1em;
+	background: #fff;
+	/*pointer-events: none;*/
+}
+.canvas-div img{
+	width: 1em;
+	height: 1em;
+	display: block;
+	opacity: 0.3;
+}
+.box{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+.box-canvas-1{
+	height: 12px;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    pointer-events: none;
+}
+.box-canvas-2{
+	height: 120px;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    flex: auto;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    pointer-events: none;
+}
+.box-canvas-3{
+	height: 12px;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    pointer-events: none;
+}
+.box-canvas-1-1{
+	width: 12px;
+	height: 12px;
+	background: url(imges/box/box-1.png);
+	pointer-events: none;
+}
+.box-canvas-1-2{
+	height: 12px;
+	background: url(imges/box/box-2.png);
+	flex: auto;
+	pointer-events: none;
+}
+.box-canvas-1-3{
+	width: 12px;
+	height: 12px;
+	background: url(imges/box/box-3.png);
+	pointer-events: none;
+}
+.box-canvas-2-1{
+	width: 12px;
+	background: url(imges/box/box-4.png);
+	pointer-events: none;
+}
+.box-canvas-2-2{
+	width: 120px;
+	background: url(imges/box/box-5.png);
+	flex: 1;
+	pointer-events: auto;
+}
+.box-canvas-2-3{
+	width: 12px;
+	background: url(imges/box/box-6.png);
+	pointer-events: none;
+}
+.box-canvas-3-1{
+	width: 12px;
+	height: 12px;
+	background: url(imges/box/box-7.png);
+	pointer-events: none;
+}
+.box-canvas-3-2{
+	height: 12px;
+	background: url(imges/box/box-8.png);
+	pointer-events: none;
+	flex: auto;
+}
+.box-canvas-3-3{
+	width: 12px;
+	height: 12px;
+	background: url(imges/box/box-9.png);
+	pointer-events: none;
+}
+.Palette-img{
+	wi1111111111dth: 100%;
+	height: 100%;
+	display: block;
+}
+#choice-name{
+	width: 192px;
+	height: 64px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+#box-menu{
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+}
+#save{
+	width: 48px;
+	height: 48px;
+	background: url(imges/save.png);
+}
+#grid{
+	width: 48px;
+	height: 48px;
+	background: url(imges/save.png);
+	background-position: 48px;
+	margin-top: 20px;
+}
+#menu{
+	width: 48px;
+	height: 48px;
+	background: url(imges/save.png);
+	background-position: 96px;
+	margin-top: 20px;
+}
+.canvas-body{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: flex-start;
+    align-content: flex-start;
+}
+#canvas-Num{
+	position: relative;
+}
+#textbook-Num{
+	position: relative;
+}
+#choice{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	background: #32445a;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+#pattern img{
+	pointer-events: auto;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#scale{
+	display: none;
+}
+#scale img{
+	pointer-events: auto;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#textbook{
+	display: none;
+	margin-left: 20px;
+}
+#course{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	background: #32445a;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    display: none;
+}
+#course img{
+	margin-left: 10px;
+	margin-right: 10px;
+	pointer-events: auto;
+}
+
+#linshi{
+	position: absolute;
+	top: -100px;
+}
+
+
+
+
+
+

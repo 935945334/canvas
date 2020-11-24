@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" onselectstart="return false">
+<head>
+	<meta charset="UTF-8">
+	<title>PIXEL画板</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="canvas.css">
+	<!-- <link rel="icon" href="favicon.ico" type="image/x-icon"/> -->
+</head>
+<body>
+	<div id="choice">
+		<div id="pattern">
+			<img src="imges/create.png" alt="" onclick="create()">
+			<img src="imges/practice.png" alt="" onclick="practice()">
+		</div>
+		<div id="scale">
+			<img src="imges/16.png" alt="" onclick="scale_16()">
+			<img src="imges/32.png" alt="" onclick="scale_32()">
+			<img src="imges/64.png" alt="" onclick="scale_64()">
+		</div>
+		<div id="course">
+			<img src="imges/course/0.png" alt="" class="course-img">
+			<img src="imges/course/1.png" alt="" class="course-img">
+			<img src="imges/course/2.png" alt="" class="course-img">
+			<img src="imges/course/3.png" alt="" class="course-img">
+		</div>
+	</div>
+	<!-- <div id="choice-name"></div> -->
+	<div id="Btn">
+		<div id="btn-1" class="Btn-div"></div>
+		<div id="btn-2" class="Btn-div"></div>
+		<div id="btn-3" class="Btn-div"></div>
+		<div id="btn-4" class="Btn-div"></div>
+		<div id="btn-5" class="Btn-div"></div>
+		<div id="btn-6" class="Btn-div"></div>
+		<div id="btn-7" class="Btn-div"></div>
+	</div>
+	<div id="box-menu">
+		<div id="save" onclick="Save();"></div>
+		<div id="grid" onclick="Grid();"></div>
+		<div id="menu"></div>
+	</div>
+	<div id="canvas">
+		<div class="box" id="box-canvas">
+			<div class="box-canvas-1">
+				<div class="box-canvas-1-1"></div>
+				<div class="box-canvas-1-2"></div>
+				<div class="box-canvas-1-3"></div>
+			</div>
+			<div class="box-canvas-2">
+				<div class="box-canvas-2-1"></div>
+				<div class="box-canvas-2-2" id="canvas-body">
+					<div id="canvas-Num" class="canvas-body" onselectstart="return false"></div>
+				</div>
+				<div class="box-canvas-2-3"></div>
+			</div>
+			<div class="box-canvas-3">
+				<div class="box-canvas-3-1"></div>
+				<div class="box-canvas-3-2"></div>
+				<div class="box-canvas-3-3"></div>
+			</div>
+		</div>
+		<div class="box" id="textbook">
+			<div class="box-canvas-1">
+				<div class="box-canvas-1-1"></div>
+				<div class="box-canvas-1-2"></div>
+				<div class="box-canvas-1-3"></div>
+			</div>
+			<div class="box-canvas-2">
+				<div class="box-canvas-2-1"></div>
+				<div class="box-canvas-2-2" id="canvas-body">
+					<div id="textbook-Num" class="canvas-body" onselectstart="return false"></div>
+				</div>
+				<div class="box-canvas-2-3"></div>
+			</div>
+			<div class="box-canvas-3">
+				<div class="box-canvas-3-1"></div>
+				<div class="box-canvas-3-2"></div>
+				<div class="box-canvas-3-3"></div>
+			</div>
+		</div>
+		<div class="box" id="box-Palette">
+			<div class="box-canvas-1">
+				<div class="box-canvas-1-1"></div>
+				<div class="box-canvas-1-2"></div>
+				<div class="box-canvas-1-3"></div>
+			</div>
+			<div class="box-canvas-2">
+				<div class="box-canvas-2-1"></div>
+				<div class="box-canvas-2-2" id="Palette"></div>
+				<div class="box-canvas-2-3"></div>
+			</div>
+			<div class="box-canvas-3">
+				<div class="box-canvas-3-1"></div>
+				<div class="box-canvas-3-2"></div>
+				<div class="box-canvas-3-3"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="linshi"></div>
+</body>
+<script src="html2canvas.js"></script>
+<script src="canvas.js"></script>
+</html>
