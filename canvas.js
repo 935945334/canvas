@@ -121,7 +121,7 @@ function function_color_Arr() {
 // choice_name.style.background = "url(imges/" + choice_bj +".png)";
 // choice_name.style.backgroundPosition = Btn_Num*0 + "px" + " " + Btn_Num*4 + "px";
 canvas.style.width = document.body.offsetWidth - 108 + "px";
-canvas.style.height = document.body.offsetHeight - 124 + "px";
+canvas.style.height = document.body.offsetHeight - 60 + "px";
 Btn_Arr[0].style.backgroundPosition = 0*Btn_Num + "px" + " " + Btn_Num*2 + "px";
 // console.log(document.body.offsetWidth - 88);
 Btn.onmouseover = function(e){//鼠标移入
