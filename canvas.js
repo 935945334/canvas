@@ -672,7 +672,9 @@ function fun_down() {
 	shuchu.style.display = "none";
 }
 
-
+function menu() {
+	location.reload();
+}
 
 
 
