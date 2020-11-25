@@ -623,9 +623,9 @@ function SaveAs5(imgURL) {
     divdiv.close();
 }
 function download(strDataURI1) {
-    var link = document.getElementById("linshi");
+    var link = document.getElementById("IsA");
     // link.innerHTML = "download_canvas_image";
-    link.download = "我的房子";
+    link.download = "画板";
     link.addEventListener("click", function(ev) {
     link.href = strDataURI1;
     }, false);
