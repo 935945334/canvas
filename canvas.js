@@ -572,20 +572,35 @@ course.addEventListener("click",function(e){
 
 
 
-function Save() {
-	huanchong()
-}
-
-
 
 var canvas_Num = document.getElementById("canvas-Num");
 var linshi = document.getElementById("linshi");
+var shuchu = document.getElementById("shuchu");
+var SSSSS = document.getElementById("SSSSS");
+var X = document.getElementById("X");
+var del = document.getElementById("del");
+var down = document.getElementById("down");
+var shuchu_btn = document.getElementById("shuchu-btn");
+function Save() {
+
+	font_size = parseInt(box_canvas.offsetHeight*0.9/canvas_Height);
+	console.log(document.body.clientWidth);
+	SSSSS.style.width = font_size*canvas_Height + 100 + "px";
+	SSSSS.style.height = font_size*canvas_Height + 100 + "px";
+	SSSSS.style.marginLeft = (document.body.clientWidth - (font_size*canvas_Height + 100))/2 + "px";
+	shuchu_btn.style.left = (document.body.clientWidth - (font_size*canvas_Height + 100))/2 + font_size*canvas_Height + 100 + "px"
+	document.body.style.fontSize = font_size + "px";
+	shuchu.style.display = "block";
+	huanchong()
+}
 
 function huanchong(){//将Frame生成图片
 	html2canvas(canvas_Num).then(function(canvas) {
     linshi.appendChild(canvas);
     var oCavans = document.getElementsByTagName("canvas")[0];
+    oCavans.style.marginTop = (linshi.offsetWidth - oCavans.offsetWidth)/2 + "px";
     var strDataURI1 = oCavans.toDataURL();
+
     downLoadFn(strDataURI1);
 	});
 };
@@ -639,9 +654,23 @@ function downLoadFn(url) {
     }
 }
 
+function fun_X() {
+	linshi.innerHTML = "";
+	shuchu.style.display = "none";
+}
 
-
-
+function fun_del() {
+	linshi.innerHTML = "";
+	shuchu.style.display = "none";
+	for (var i = 0; i < color_Arr.length; i++) {
+		canvas_Arr[i].style.background = is_bj;
+		color_Arr.splice(i,1,is_bj)
+	}
+}
+function fun_down() {
+	linshi.innerHTML = "";
+	shuchu.style.display = "none";
+}
 
 
 

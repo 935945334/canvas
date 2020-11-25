@@ -266,12 +266,36 @@ body{
 }
 
 #linshi{
-	position: absolute;
-	top: 100px;
+	display: -webkit-flex;
+    display: flex;
 }
-
-
-
+#linshi canvas{
+	margin: auto;
+}
+#shuchu{
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	background: #32445a;
+	position: relative;
+	z-index: 10;
+}
+#SSSSS{
+	position: absolute;
+	top: 6vh;
+}
+#shuchu-btn{
+	top: 7vh;
+	position: absolute;
+	z-index: 20;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+#shuchu-btn img{
+	pointer-events: auto;
+}
 
 
 
