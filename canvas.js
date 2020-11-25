@@ -623,15 +623,12 @@ function SaveAs5(imgURL) {
     divdiv.close();
 }
 function download(strDataURI1) {
-    var link = document.getElementById("IsA");
+    var link = document.getElementById("linshi");
     // link.innerHTML = "download_canvas_image";
     link.download = "我的房子";
     link.addEventListener("click", function(ev) {
     link.href = strDataURI1;
     }, false);
-    document.getElementById("load").style.display = "none";
-    document.getElementById("save").style.display = "block";
-    document.getElementById("cancel").style.display = "block";
     // document.body.appendChild(link);
 };
 function downLoadFn(url) {
