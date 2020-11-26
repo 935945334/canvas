@@ -500,7 +500,12 @@ function scale_64() {
 function establish() {
 	if (canvas_state == "create") {
 		console.log(canvas_state)
-		box_canvas.style.width = canvas.offsetWidth - 164 + "px";
+		if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+			box_canvas.style.width = window.screen.width + "px";
+			box_canvas.style.height = window.screen.width + "px";
+		}else{
+			box_canvas.style.width = canvas.offsetWidth - 164 + "px";
+		}
 		var div = document.createElement("div");
 		canvas_Num.style.width = canvas_Width + "em";
 		canvas_Num.style.height = canvas_Height + "em";
@@ -695,13 +700,13 @@ if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 	document.getElementById("pattern").className = "iPhone-pattern";
 	document.getElementById("course").className = "iPhone-course";
 	document.getElementById("scale").className = "iPhone-scale";
-	document.getElementById("box-canvas").className = "iPhone-box-canvas";
+	document.getElementById("box-canvas").classList.add("iPhone-box-canvas");
 	document.getElementById("textbook").className = "iPhone-textbook";
 	document.getElementById("Btn").className = "iPhone-Btn";
 	document.getElementById("box-menu").className = "iPhone-box-menu";
 	document.getElementById("box-Palette").classList.add("iPhone-box-Palette");
 	document.getElementById("canvas").className = "iPhone-canvas";
-	
+	document.getElementById("Btn-64").style.display = "none";
 	
 
 }else{
