@@ -165,7 +165,7 @@ body{
 	pointer-events: none;
 }
 .Palette-img{
-	wi1111111111dth: 100%;
+	width: 100%;
 	height: 100%;
 	display: block;
 }
@@ -296,6 +296,64 @@ body{
 #shuchu-btn img{
 	pointer-events: auto;
 }
+
+
+
+
+
+
+
+.iPhone-pattern{
+
+}
+.iPhone-pattern img{
+	pointer-events: auto;
+	width: 30vw;
+	margin-left: 10px !important;
+	margin-right: 10px !important;
+}
+.iPhone-course{
+	-webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+}
+.iPhone-course img{
+	margin-top: 10px;
+}
+
+.iPhone-scale{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+	height: 64%;
+}
+.iPhone-box-canvas{
+	display: none;
+}
+.iPhone-textbook{
+	display: none !important;
+}
+.iPhone-Btn{
+	display: none !important;
+}
+.iPhone-box-menu{
+	display: none !important;
+}
+.iPhone-box-Palette{
+	width: 100%;
+}
+.iPhone-canvas{
+	width: 100%;
+}
+
+
+
 
 
 

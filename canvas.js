@@ -120,8 +120,7 @@ function function_color_Arr() {
 
 // choice_name.style.background = "url(imges/" + choice_bj +".png)";
 // choice_name.style.backgroundPosition = Btn_Num*0 + "px" + " " + Btn_Num*4 + "px";
-canvas.style.width = document.body.offsetWidth - 108 + "px";
-canvas.style.height = document.body.offsetHeight - 60 + "px";
+
 Btn_Arr[0].style.backgroundPosition = 0*Btn_Num + "px" + " " + Btn_Num*2 + "px";
 // console.log(document.body.offsetWidth - 88);
 Btn.onmouseover = function(e){//鼠标移入
@@ -153,16 +152,22 @@ function function_Palette() {
 		var div = document.createElement("div");
 		div.style.background = color_temp[i];
 		div.index = i;
-		if (color_temp.length*120/2 < Palette.offsetHeight) {
-			div.style.width = "60px"
-			div.style.height = "60px"
-		}else if (color_temp.length*60/4 < Palette.offsetHeight){
-			div.style.width = "60px"
-			div.style.height = "60px"
-		}else if (color_temp.length*30/8 < Palette.offsetHeight){
+		if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
 			div.style.width = "30px"
 			div.style.height = "30px"
+		}else{
+			if (color_temp.length*120/2 < Palette.offsetHeight) {
+				div.style.width = "60px"
+				div.style.height = "60px"
+			}else if (color_temp.length*60/4 < Palette.offsetHeight){
+				div.style.width = "60px"
+				div.style.height = "60px"
+			}else if (color_temp.length*30/8 < Palette.offsetHeight){
+				div.style.width = "30px"
+				div.style.height = "30px"
+			}
 		}
+		
 		var Img = document.createElement("img");
 		Img.src = "imges/Palette-bj.png";
 		div.appendChild(Img).className = "Palette-img";;
@@ -447,7 +452,7 @@ function create() {
 	canvas_state = "create";
 	console.log(canvas_Height*font_size)
 	document.getElementById("pattern").style.display = "none";
-	document.getElementById("scale").style.display = "block";
+	document.getElementById("scale").style.display = "flex";
 	color_temp = color_64;
 	function_Palette();
 
@@ -675,6 +680,103 @@ function fun_down() {
 function menu() {
 	location.reload();
 }
+
+
+
+if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	document.getElementById("pattern").className = "iPhone-pattern";
+	document.getElementById("course").className = "iPhone-course";
+	document.getElementById("scale").className = "iPhone-scale";
+	document.getElementById("box-canvas").className = "iPhone-box-canvas";
+	document.getElementById("textbook").className = "iPhone-textbook";
+	document.getElementById("Btn").className = "iPhone-Btn";
+	document.getElementById("box-menu").className = "iPhone-box-menu";
+	document.getElementById("box-Palette").className = "iPhone-box-Palette";
+	document.getElementById("canvas").className = "iPhone-canvas";
+}else{
+	canvas.style.width = document.body.offsetWidth - 108 + "px";
+	canvas.style.height = document.body.offsetHeight - 60 + "px";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
