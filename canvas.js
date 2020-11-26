@@ -455,6 +455,14 @@ function create() {
 	document.getElementById("scale").style.display = "flex";
 	color_temp = color_64;
 	function_Palette();
+	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		document.getElementById("box-Palette").style.width = parseInt((window.screen.width-24)/30)*30+24 + "px";
+		document.getElementById("box-Palette").style.height = Math.ceil(color_temp.length/((window.screen.width-24)/30))*30+24 + "px";
+		// document.getElementById("box-Palette").style.marginTop = window.screen.height - (Math.ceil(color_temp.length/((window.screen.width-24)/30))*30+24) + "px";
+		// document.getElementById("box-Palette").style.marginLeft = (window.screen.width - (parseInt((window.screen.width-24)/30)*30+24))/2 + "px";
+		console.log(document.getElementById("box-Palette").offsetWidth);
+	}
+	
 
 }
 function practice() {
@@ -691,9 +699,13 @@ if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 	document.getElementById("textbook").className = "iPhone-textbook";
 	document.getElementById("Btn").className = "iPhone-Btn";
 	document.getElementById("box-menu").className = "iPhone-box-menu";
-	document.getElementById("box-Palette").className = "iPhone-box-Palette";
+	document.getElementById("box-Palette").classList.add("iPhone-box-Palette");
 	document.getElementById("canvas").className = "iPhone-canvas";
+	
+	
+
 }else{
+	document.getElementById("Btn").className = "PC-Btn";
 	canvas.style.width = document.body.offsetWidth - 108 + "px";
 	canvas.style.height = document.body.offsetHeight - 60 + "px";
 }
