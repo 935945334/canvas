@@ -280,6 +280,17 @@ body{
     -webkit-flex-direction: column;
     flex-direction: column;
 }
+#iPhone-shuchu-btn{
+	position: absolute;
+	z-index: 20;
+	display: -webkit-flex;
+    display: flex;
+}
+#iPhone-shuchu-btn img{
+	width: 48px;
+	height: 39px;
+	pointer-events: auto;
+}
 #shuchu-btn img{
 	pointer-events: auto;
 }

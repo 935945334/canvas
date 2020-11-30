@@ -609,6 +609,7 @@ var X = document.getElementById("X");
 var del = document.getElementById("del");
 var down = document.getElementById("down");
 var shuchu_btn = document.getElementById("shuchu-btn");
+var iPhone_shuchu_btn = document.getElementById("iPhone-shuchu-btn");
 function Save() {
 
 	font_size = parseInt(box_canvas.offsetHeight*0.9/canvas_Height);
@@ -621,7 +622,20 @@ function Save() {
 	shuchu.style.display = "block";
 	huanchong()
 }
-
+function iPhone_Save() {
+	font_size = parseInt(box_canvas.offsetHeight*0.9/canvas_Height);
+	console.log(document.body.clientWidth);
+	SSSSS.style.width = font_size*canvas_Height + 24 + "px";
+	SSSSS.style.height = font_size*canvas_Height + 24 + "px";
+	SSSSS.style.marginLeft = (document.body.clientWidth - (font_size*canvas_Height + 24))/2 + "px";
+	document.body.style.fontSize = font_size + "px";
+	shuchu.style.display = "block";
+	shuchu_btn.style.display = "none";
+	console.log(SSSSS.offsetLeft + SSSSS.offsetWidth);
+	iPhone_shuchu_btn.style.top = SSSSS.offsetTop + SSSSS.offsetHeight + "px";
+	iPhone_shuchu_btn.style.right = document.body.clientWidth - SSSSS.offsetLeft - SSSSS.offsetWidth + 3 + "px";
+	huanchong()
+}
 function huanchong(){//将Frame生成图片
 	html2canvas(canvas_Num).then(function(canvas) {
 	linshi.appendChild(canvas);
@@ -666,7 +680,12 @@ function SaveAs5(imgURL) {
 	divdiv.close();
 }
 function download(strDataURI1) {
-	var link = document.getElementById("IsA");
+	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		var link = document.getElementById("iPhone-IsA");
+	}else{
+		var link = document.getElementById("IsA");
+	}
+	
 	// link.innerHTML = "download_canvas_image";
 	link.download = "画板";
 	link.addEventListener("click", function(ev) {
@@ -685,6 +704,10 @@ function downLoadFn(url) {
 function fun_X() {
 	linshi.innerHTML = "";
 	shuchu.style.display = "none";
+	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+		canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+	}
 }
 
 function fun_del() {
@@ -694,10 +717,19 @@ function fun_del() {
 		canvas_Arr[i].style.background = is_bj;
 		color_Arr.splice(i,1,is_bj)
 	}
+	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+		canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+	}
+	
 }
 function fun_down() {
 	linshi.innerHTML = "";
 	shuchu.style.display = "none";
+	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+		canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+	}
 }
 
 function menu() {
@@ -769,7 +801,7 @@ iPhone_Btn.addEventListener("click",function(e){
 	}
 	if (e.target.index == 7) {
 		console.log("保存");
-		Save();
+		iPhone_Save();
 	}
 	if (e.target.index == 8) {
 		console.log("刷新");
@@ -900,29 +932,7 @@ canvas_Num.addEventListener('touchend', function(e) {
 
 
 
-var overscroll = function(el){ 
-    el.addEventListener('touchstart', function(){ 
-      var top = el.scrollTop; 
-      var totalScroll = el.scrollHeight; 
-      var currentScroll = top + el.offsetHeight; 
-      if(top === 0) { 
-        el.scrollTop = 1; 
-      }else if(currentScroll === totalScroll){ 
-        el.scrollTop = top - 1; 
-      } 
-    }); 
-    el.addEventListener('touchmove', function(evt){ 
-      if(el.offsetHeight < el.scrollHeight){ 
-        evt._isScroller = true; 
-      } 
-    }); 
-  } 
-  overscroll(document.querySelector('.scroll'));//哪里需要可以局部滚动，添加一个“scroll”的class 
-  document.body.addEventListener('touchmove', function(evt) { 
-    if(!evt._isScroller){ 
-      evt.preventDefault(); 
-    } 
-  }); 
+
 
 
 
