@@ -691,6 +691,11 @@ function download(strDataURI1) {
 	link.download = "画板";
 	link.addEventListener("click", function(ev) {
 		link.href = strDataURI1;
+		window.location.href = strDataURI1;
+		var ua = window.navigator.userAgent.toLowerCase();
+	    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+	        window.location.href = strDataURI1;
+	    }
 	}, false);
 	// document.body.appendChild(link);
 };
@@ -712,18 +717,16 @@ function fun_X() {
 }
 
 function fun_del() {
-	console.log(strDataURI1);
-	window.location.href=strDataURI1;
-	// linshi.innerHTML = "";
-	// shuchu.style.display = "none";
-	// for (var i = 0; i < color_Arr.length; i++) {
-	// 	canvas_Arr[i].style.background = is_bj;
-	// 	color_Arr.splice(i,1,is_bj)
-	// }
-	// if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-	// 	canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
-	// 	canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
-	// }
+	linshi.innerHTML = "";
+	shuchu.style.display = "none";
+	for (var i = 0; i < color_Arr.length; i++) {
+		canvas_Arr[i].style.background = is_bj;
+		color_Arr.splice(i,1,is_bj)
+	}
+	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+		canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+	}
 	
 }
 function fun_down() {
