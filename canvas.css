@@ -331,10 +331,12 @@ body{
 }
 .iPhone-box-canvas{
 	margin-top: 6px;
+	/*margin-bottom: 6px;*/
 	/*display: none;*/
 }
 .iPhone-textbook{
-	display: none !important;
+	/*display: none !important;*/
+	/*margin: 0 !important;*/
 }
 .iPhone-Btn{
 	/*display: none !important;*/
@@ -346,6 +348,7 @@ body{
 	width: 100%;
 	margin-top: 6px;
 	margin-left: 0 !important;
+	margin-bottom: 6px;
 	/*display: none !important;*/
 }
 .iPhone-canvas{
@@ -396,10 +399,4 @@ body{
 	/*width: 30px;
 	height: 30px;*/
 }
-#xianshi{
-	width: 100px;
-	height: 30px;
-	position: absolute;
-	bottom: 20px;
-	background: #fff;
-}
+

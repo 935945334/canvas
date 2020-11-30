@@ -433,7 +433,6 @@ window.onmouseup = function(e) {
 	is_magnifier = false;
 }
 function Grid() {
-	document.getElementById("xianshi").innerHTML = canvas_Arr[0].offsetWidth;
 	if (Grid_state == true) {
 		Grid_state = false
 		var img = "imges/1.png"
@@ -469,11 +468,12 @@ function create() {
 }
 function practice() {
 	canvas_state = "practice";
+	console.log(canvas_state)
 	document.getElementById("pattern").style.display = "none";
 	// document.getElementById("choice").style.display = "none";
 	document.getElementById("course").style.display = "flex";
 	textbook.style.display = "flex";
-	
+
 }
 function scale_16() {
 	canvas_Width = 16;
@@ -507,13 +507,6 @@ function establish() {
 			// box_canvas.style.height = window.screen.width + "px";
 			box_canvas.style.width = parseInt((window.screen.width-24)/30)*30+24 + "px"
 			box_canvas.style.height = parseInt((window.screen.width-24)/30)*30+24 + "px"
-			iPhone_Btn_Arr = document.getElementsByClassName("iPhone-Btn-div");
-			for (var i = 0; i < iPhone_Btn_Arr.length; i++) {
-				iPhone_Btn_Arr[i].index = i;
-				iPhone_Btn_Arr[i].style.background = "url(imges/iPhone-Btn.png)";
-				iPhone_Btn_Arr[i].style.backgroundPosition = i*Btn_Num + "px" + " " + Btn_Num*4 + "px";
-			}
-			iPhone_Btn_Arr[0].style.backgroundPosition = i*Btn_Num + "px" + " " + Btn_Num*1 + "px";
 		}else{
 			box_canvas.style.width = canvas.offsetWidth - 164 + "px";
 		}
@@ -562,16 +555,32 @@ function establish() {
 			div.appendChild(Img);
 			textbook_Num.appendChild(div).className = "canvas-div";
 		}
-		for(var i = 0; i < 64; i++) {
-			if (canvas_Height*font_size > canvas_body.offsetHeight || canvas_Width*font_size > canvas_body.offsetWidth) {
-				font_size--
-				document.body.style.fontSize = font_size + "px";
+
+		
+		if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+			box_canvas.style.height = parseInt((canvas.offsetHeight-document.getElementById("iPhone-Btn").offsetHeight-document.getElementById("box-Palette").offsetHeight)/2) + "px"
+			textbook.style.height = parseInt((canvas.offsetHeight-document.getElementById("iPhone-Btn").offsetHeight-document.getElementById("box-Palette").offsetHeight)/2) + "px"
+			for(var i = 0; i < 64; i++) {
+				if (canvas_Height*font_size > canvas_body.offsetHeight) {
+					if (font_size > 12) {
+						font_size--
+					}
+				}
 			}
+		}else{
+			for(var i = 0; i < 64; i++) {
+				if (canvas_Height*font_size > canvas_body.offsetHeight || canvas_Width*font_size > canvas_body.offsetWidth) {
+					if (font_size > 12) {
+						font_size--
+					}
+				}
+			}
+			canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+			canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+			textbook_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+			textbook_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
 		}
-		canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
-		canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
-		textbook_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
-		textbook_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+		document.body.style.fontSize = font_size + "px";
 		textbook_Num.style.width = canvas_Width + "em";
 		textbook_Num.style.height = canvas_Height + "em";
 	}
@@ -599,7 +608,17 @@ course.addEventListener("click",function(e){
 		establish();
 		function_color_Arr();
 	}
+	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		document.getElementById("box-Palette").style.width = parseInt((window.screen.width-24)/30)*30+24 + "px";
+		document.getElementById("box-div-Palette").style.height = Math.ceil(color_temp.length/((window.screen.width-24)/30))*30 + "px";
+		// document.getElementById("box-Palette").style.height = "150px";
+		// document.getElementById("box-Palette").style.marginTop = window.screen.height - (Math.ceil(color_temp.length/((window.screen.width-24)/30))*30+24) + "px";
+		// document.getElementById("box-Palette").style.marginLeft = (window.screen.width - (parseInt((window.screen.width-24)/30)*30+24))/2 + "px";
+		console.log(document.getElementById("box-Palette").offsetWidth);
+	}
+	
 	document.getElementById("choice").style.display = "none";
+	iPhone_course();
 })
 
 
@@ -753,7 +772,7 @@ if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 	document.getElementById("course").className = "iPhone-course";
 	document.getElementById("scale").className = "iPhone-scale";
 	document.getElementById("box-canvas").classList.add("iPhone-box-canvas");
-	document.getElementById("textbook").className = "iPhone-textbook";
+	document.getElementById("textbook").classList.add("iPhone-textbook");
 	document.getElementById("box-menu").className = "iPhone-box-menu";
 	document.getElementById("box-Palette").classList.add("iPhone-box-Palette");
 	document.getElementById("canvas").className = "iPhone-canvas";
@@ -762,6 +781,13 @@ if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 	document.getElementById("iPhone-Btn").style.display = "flex";
 	document.getElementById("iPhone-Btn").style.width = parseInt((window.screen.width-24)/30)*30+24 + "px";
 	Btn_Num = -32;
+	iPhone_Btn_Arr = document.getElementsByClassName("iPhone-Btn-div");
+	for (var i = 0; i < iPhone_Btn_Arr.length; i++) {
+		iPhone_Btn_Arr[i].index = i;
+		iPhone_Btn_Arr[i].style.background = "url(imges/iPhone-Btn.png)";
+		iPhone_Btn_Arr[i].style.backgroundPosition = i*Btn_Num + "px" + " " + Btn_Num*4 + "px";
+	}
+	iPhone_Btn_Arr[0].style.backgroundPosition = i*Btn_Num + "px" + " " + Btn_Num*1 + "px";
 	Btn_state = "铅笔";
 
 }else{
@@ -872,18 +898,6 @@ canvas_Num.addEventListener("touchstart", function(e) {//鼠标移入农场时�
 		}
 		break;
 	}
-
-	
-	// console.log(e.delegateTarget);
-	// //获取坐标
-	// HouseX = e.targetTouches[0].clientX;
-	// HouseY = e.targetTouches[0].clientY;
-	// //获取偏移量
-	// HouseT = House.offsetTop;
-	// HouseL = House.offsetLeft;
-	// //开关打开
-	// isHouse = true;
-	// //设置样式  
 })
 
 
@@ -942,7 +956,22 @@ canvas_Num.addEventListener('touchend', function(e) {
 
 
 
-
+function iPhone_course() {
+	box_canvas.style.width = parseInt((window.screen.width-24)/30)*30+24 + "px"
+	textbook.style.width = parseInt((window.screen.width-24)/30)*30+24 + "px"
+	box_canvas.style.height = parseInt((canvas.offsetHeight-document.getElementById("iPhone-Btn").offsetHeight-document.getElementById("box-Palette").offsetHeight)/2) + "px"
+	textbook.style.height = parseInt((canvas.offsetHeight-document.getElementById("iPhone-Btn").offsetHeight-document.getElementById("box-Palette").offsetHeight)/2) + "px"
+	// box_canvas.style.height = parseInt((window.screen.width-24)/30)*30+24 + "px"
+	canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+	canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+	textbook_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+	textbook_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+	box_Palette.style.order = 4;
+	box_canvas.style.order = 3;
+	textbook_Num.style.order = 2;
+	textbook.style.marginTop = "6px";
+	textbook.style.marginLeft = 0;
+}
 
 
 
