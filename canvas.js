@@ -768,7 +768,7 @@ function menu() {
 
 
 if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-	canvas.style.height = document.body.offsetHeight + "px";
+	canvas.style.height = document.body.offsetHeight*0.95 + "px";
 	document.getElementById("pattern").className = "iPhone-pattern";
 	document.getElementById("course").className = "iPhone-course";
 	document.getElementById("scale").className = "iPhone-scale";
