@@ -285,6 +285,7 @@ body{
 	z-index: 20;
 	display: -webkit-flex;
     display: flex;
+    display: none;
 }
 #iPhone-shuchu-btn img{
 	width: 48px;

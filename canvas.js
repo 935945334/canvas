@@ -631,6 +631,7 @@ function iPhone_Save() {
 	document.body.style.fontSize = font_size + "px";
 	shuchu.style.display = "block";
 	shuchu_btn.style.display = "none";
+	iPhone_shuchu_btn.style.display = "block";
 	console.log(SSSSS.offsetLeft + SSSSS.offsetWidth);
 	iPhone_shuchu_btn.style.top = SSSSS.offsetTop + SSSSS.offsetHeight + "px";
 	iPhone_shuchu_btn.style.right = document.body.clientWidth - SSSSS.offsetLeft - SSSSS.offsetWidth + 3 + "px";
