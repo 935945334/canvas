@@ -196,6 +196,7 @@ body{
 }
 #canvas-Num{
 	position: relative;
+	overflow:hidden;
 }
 #textbook-Num{
 	position: relative;
