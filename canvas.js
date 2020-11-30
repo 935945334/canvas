@@ -433,7 +433,7 @@ window.onmouseup = function(e) {
 	is_magnifier = false;
 }
 function Grid() {
-	document.getElementById("xianshi").innerHTML = font_size;
+	document.getElementById("xianshi").innerHTML = canvas_Arr[0].offsetWidth;
 	if (Grid_state == true) {
 		Grid_state = false
 		var img = "imges/1.png"
