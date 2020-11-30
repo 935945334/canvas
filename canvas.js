@@ -433,6 +433,7 @@ window.onmouseup = function(e) {
 	is_magnifier = false;
 }
 function Grid() {
+	document.getElementById("xianshi").innerHTML = font_size;
 	if (Grid_state == true) {
 		Grid_state = false
 		var img = "imges/1.png"
@@ -577,6 +578,9 @@ function establish() {
 	canvas_Arr = canvas_body.getElementsByClassName("canvas-div");
 	course_Arr = textbook_Num.getElementsByClassName("canvas-div");
 	// console.log(course_Arr);
+	for (var i = 0; i < canvas_Arr.length; i++) {
+		canvas_Arr[i].style.pointerEvents = "auto";
+	}
 }
 var course = document.getElementById("course");
 var course_Arr = course.getElementsByClassName("course-img");

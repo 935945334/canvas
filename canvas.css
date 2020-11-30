@@ -395,4 +395,10 @@ body{
 	/*width: 30px;
 	height: 30px;*/
 }
-
+#xianshi{
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	bottom: 1px;
+	background: #fff;
+}
