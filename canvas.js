@@ -6,6 +6,7 @@ var box_Palette = document.getElementById("box-Palette");
 var Palette = document.getElementById("Palette");
 var choice_name = document.getElementById("choice-name");
 var Btn_Arr = Btn.getElementsByClassName("Btn-div");
+var iPhone_Btn_Arr = document.getElementsByClassName("iPhone-Btn-div");
 var canvas_Num = document.getElementById("canvas-Num");
 var textbook = document.getElementById("textbook");
 var textbook_Num = document.getElementById("textbook-Num");
@@ -501,8 +502,17 @@ function establish() {
 	if (canvas_state == "create") {
 		console.log(canvas_state)
 		if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-			box_canvas.style.width = window.screen.width + "px";
-			box_canvas.style.height = window.screen.width + "px";
+			// box_canvas.style.width = window.screen.width + "px";
+			// box_canvas.style.height = window.screen.width + "px";
+			box_canvas.style.width = parseInt((window.screen.width-24)/30)*30+24 + "px"
+			box_canvas.style.height = parseInt((window.screen.width-24)/30)*30+24 + "px"
+			iPhone_Btn_Arr = document.getElementsByClassName("iPhone-Btn-div");
+			for (var i = 0; i < iPhone_Btn_Arr.length; i++) {
+				iPhone_Btn_Arr[i].index = i;
+				iPhone_Btn_Arr[i].style.background = "url(imges/iPhone-Btn.png)";
+				iPhone_Btn_Arr[i].style.backgroundPosition = i*Btn_Num + "px" + " " + Btn_Num*4 + "px";
+			}
+			iPhone_Btn_Arr[0].style.backgroundPosition = i*Btn_Num + "px" + " " + Btn_Num*1 + "px";
 		}else{
 			box_canvas.style.width = canvas.offsetWidth - 164 + "px";
 		}
@@ -614,12 +624,12 @@ function Save() {
 
 function huanchong(){//将Frame生成图片
 	html2canvas(canvas_Num).then(function(canvas) {
-    linshi.appendChild(canvas);
-    var oCavans = document.getElementsByTagName("canvas")[0];
-    oCavans.style.marginTop = (linshi.offsetWidth - oCavans.offsetWidth)/2 + "px";
-    var strDataURI1 = oCavans.toDataURL();
+	linshi.appendChild(canvas);
+	var oCavans = document.getElementsByTagName("canvas")[0];
+	oCavans.style.marginTop = (linshi.offsetWidth - oCavans.offsetWidth)/2 + "px";
+	var strDataURI1 = oCavans.toDataURL();
 
-    downLoadFn(strDataURI1);
+	downLoadFn(strDataURI1);
 	});
 };
  //判断浏览器类型
@@ -627,19 +637,19 @@ function myBrowser() {
 	var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
 	var isdivera = userAgent.indexOf("divera") > -1;
 	if(isdivera) {
-    	return "divera"
+		return "divera"
 	}; //判断是否divera浏览器
 	if(userAgent.indexOf("Firefox") > -1) {
-    	return "FF";
+		return "FF";
 	} //判断是否Firefox浏览器
 	if(userAgent.indexOf("Chrome") > -1) {
-    	return "Chrome";
+		return "Chrome";
 	}
 	if(userAgent.indexOf("Safari") > -1) {
-    	return "Safari";
+		return "Safari";
 	} //判断是否Safari浏览器
 	if(userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isdivera) {
-    	return "IE";
+		return "IE";
 	}; //判断是否IE浏览器
 	if(userAgent.indexOf("Trident") > -1) {
    	 return "Edge";
@@ -648,28 +658,28 @@ function myBrowser() {
 myBrowser();
 //IE浏览器图片保存本地
 function SaveAs5(imgURL) {
-    var divdiv = window.diven(imgURL, "", "width=1, height=1, top=5000, left=5000");
-    for(; divdiv.document.readyState != "complete";) {
-        if(divdiv.document.readyState == "complete") break;
-    }
-    divdiv.document.execCommand("SaveAs");
-    divdiv.close();
+	var divdiv = window.diven(imgURL, "", "width=1, height=1, top=5000, left=5000");
+	for(; divdiv.document.readyState != "complete";) {
+		if(divdiv.document.readyState == "complete") break;
+	}
+	divdiv.document.execCommand("SaveAs");
+	divdiv.close();
 }
 function download(strDataURI1) {
-    var link = document.getElementById("IsA");
-    // link.innerHTML = "download_canvas_image";
-    link.download = "画板";
-    link.addEventListener("click", function(ev) {
-    link.href = strDataURI1;
-    }, false);
-    // document.body.appendChild(link);
+	var link = document.getElementById("IsA");
+	// link.innerHTML = "download_canvas_image";
+	link.download = "画板";
+	link.addEventListener("click", function(ev) {
+	link.href = strDataURI1;
+	}, false);
+	// document.body.appendChild(link);
 };
 function downLoadFn(url) {
-    if(myBrowser() === "IE" || myBrowser() === "Edge") {
-        SaveAs5(url);
-    } else {
-        download(url);
-    }
+	if(myBrowser() === "IE" || myBrowser() === "Edge") {
+		SaveAs5(url);
+	} else {
+		download(url);
+	}
 }
 
 function fun_X() {
@@ -702,12 +712,15 @@ if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 	document.getElementById("scale").className = "iPhone-scale";
 	document.getElementById("box-canvas").classList.add("iPhone-box-canvas");
 	document.getElementById("textbook").className = "iPhone-textbook";
-	document.getElementById("Btn").className = "iPhone-Btn";
 	document.getElementById("box-menu").className = "iPhone-box-menu";
 	document.getElementById("box-Palette").classList.add("iPhone-box-Palette");
 	document.getElementById("canvas").className = "iPhone-canvas";
 	document.getElementById("Btn-64").style.display = "none";
-	
+	document.getElementById("Btn").style.display = "none";
+	document.getElementById("iPhone-Btn").style.display = "flex";
+	document.getElementById("iPhone-Btn").style.width = parseInt((window.screen.width-24)/30)*30+24 + "px";
+	Btn_Num = -32;
+	Btn_state = "铅笔";
 
 }else{
 	document.getElementById("Btn").className = "PC-Btn";
@@ -715,39 +728,173 @@ if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 	canvas.style.height = document.body.offsetHeight - 60 + "px";
 }
 
+var iPhone_Btn = document.getElementById("iPhone-Btn");
+iPhone_Btn.addEventListener("click",function(e){
+	if (e.target.index != undefined && e.target.index < 4) {
+		for (var i = 0; i < iPhone_Btn_Arr.length; i++) {
+			iPhone_Btn_Arr[i].style.backgroundPosition = i*Btn_Num + "px" + " " + Btn_Num*4 + "px";
+		}
+		var state_Arr = ["铅笔","橡皮擦","拾色器","抓手","放大","缩小"];
+		e.target.style.backgroundPosition = e.target.index*Btn_Num + "px" + " " + Btn_Num*1 + "px";
+		Btn_Temp = e.target.style.backgroundPosition;
+		Btn_state = state_Arr[e.target.index];
+		console.log(Btn_state);
+	}
+	if (e.target.index == 4) {
+		console.log("放大");
+		font_size++;
+		document.body.style.fontSize = font_size + "px";
+		if (canvas_Num.offsetWidth <= canvas_body.offsetWidth) {
+			canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+			canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+		}
+		
+
+	}
+	if (e.target.index == 5) {
+		console.log("缩小");
+		if (font_size > 12) {
+			font_size--;
+		}
+		console.log(font_size);
+		document.body.style.fontSize = font_size + "px";
+		if (canvas_Num.offsetWidth <= canvas_body.offsetWidth) {
+			canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+			canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+		}
+	}
+	if (e.target.index == 6) {
+		console.log("网格");
+		Grid();
+	}
+	if (e.target.index == 7) {
+		console.log("保存");
+		Save();
+	}
+	if (e.target.index == 8) {
+		console.log("刷新");
+		menu();
+	}
+})
+
+
+var canvas_Num_width;
+var canvas_body_width;
+var canvas_Num_T;
+var canvas_Num_L;
+var canvas_Num_X;
+var canvas_Num_Y;
+var canvas_Num_NT;
+var canvas_Num_NL;
+var canvas_Num_state = false;
+
+canvas_Num.addEventListener("touchstart", function(e) {//鼠标移入农场时开启农场移动状态
+	// console.log(Btn_state);
+	canvas_Num_state = true;
+	var Palette_div_Arr = document.getElementsByClassName("Palette-div");
+	for (var i = 0; i < Palette_div_Arr.length; i++) {
+		Palette_div_Arr[i].style.pointerEvents = "none";
+	}
+	document.getElementById("iPhone-Btn").style.pointerEvents = "none";
+	switch (Btn_state){
+		case "铅笔":
+		e.target.style.background = is_Color;
+		color_Arr.splice(e.target.index,1,is_Color)
+		break;
+		case "橡皮擦":
+		e.target.style.background = is_bj;
+		color_Arr.splice(e.target.index,1,is_bj)
+		break;
+		case "拾色器":
+		console.log(color_Arr[e.target.index]);
+		is_Color = color_Arr[e.target.index];
+		for(var i = 0; i < color_temp.length; i++) {
+			if (i == color_temp.indexOf(is_Color)) {
+				Palette.getElementsByClassName("Palette-img")[i].src = "imges/Palette-border.png";
+			}else{
+				Palette.getElementsByClassName("Palette-img")[i].src = "imges/Palette-bj.png";
+			}
+		}
+		break;
+		case "抓手":
+		canvas_Num_width = canvas_Num.offsetWidth;
+		canvas_body_width = canvas_body.offsetWidth;
+		if (canvas_Num.offsetWidth > canvas_body.offsetWidth) {
+			canvas_Num_X = e.targetTouches[0].clientX;
+			canvas_Num_Y = e.targetTouches[0].clientY;
+			canvas_Num_T = canvas_Num.offsetTop;
+			canvas_Num_L = canvas_Num.offsetLeft;
+			
+			console.log(canvas_Num_X);
+			console.log(canvas_Num_Y);
+		}
+		break;
+	}
+
+	
+	// console.log(e.delegateTarget);
+	// //获取坐标
+	// HouseX = e.targetTouches[0].clientX;
+	// HouseY = e.targetTouches[0].clientY;
+	// //获取偏移量
+	// HouseT = House.offsetTop;
+	// HouseL = House.offsetLeft;
+	// //开关打开
+	// isHouse = true;
+	// //设置样式  
+})
+
+
+
+canvas_Num.addEventListener('touchmove', function(e) {
+	// console.log(2);
+	if (canvas_Num_state == true) {
+		var event = e || window.event;
+		var element = document.elementFromPoint(event.changedTouches[0].pageX, event.changedTouches[0].pageY);
+		// console.log(element.index);
+		if (element.className == "canvas-div") {
+			switch (Btn_state){
+				case "铅笔":
+				element.style.background = is_Color;
+				color_Arr.splice(element.index,1,is_Color)
+				break;
+				case "橡皮擦":
+				element.style.background = is_bj;
+				color_Arr.splice(element.index,1,is_bj)
+				break;
+				case "抓手":
+				if (canvas_Num.offsetWidth > canvas_body.offsetWidth) {
+					var canvas_Num_NX = e.targetTouches[0].clientX;
+					var canvas_Num_NY = e.targetTouches[0].clientY;
+					canvas_Num_NL = canvas_Num_NX - (canvas_Num_X - canvas_Num_L)
+					canvas_Num_NT = canvas_Num_NY - (canvas_Num_Y - canvas_Num_T)
+					canvas_Num.style.left = canvas_Num_NL + "px";
+					canvas_Num.style.top = canvas_Num_NT + "px";
+					
+					
+					// console.log(canvas_Num_X);
+					console.log(canvas_Num_NL);
+				}
+				break;
+			}
+		}
+		
+	}
+});
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+canvas_Num.addEventListener('touchend', function(e) {
+	// console.log(3);
+	canvas_Num_state = false;
+	document.getElementById("iPhone-Btn").style.pointerEvents = "auto";
+	var Palette_div_Arr = document.getElementsByClassName("Palette-div");
+	for (var i = 0; i < Palette_div_Arr.length; i++) {
+		Palette_div_Arr[i].style.pointerEvents = "auto";
+	}
+});
 
 
 
