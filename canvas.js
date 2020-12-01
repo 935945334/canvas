@@ -832,6 +832,8 @@ iPhone_Btn.addEventListener("click",function(e){
 		if (canvas_Num.offsetWidth <= canvas_body.offsetWidth) {
 			canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
 			canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+			textbook_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+			textbook_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
 		}
 	}
 	if (e.target.index == 6) {
