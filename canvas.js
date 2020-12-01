@@ -611,14 +611,11 @@ course.addEventListener("click",function(e){
 	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 		document.getElementById("box-Palette").style.width = parseInt((window.screen.width-24)/30)*30+24 + "px";
 		document.getElementById("box-div-Palette").style.height = Math.ceil(color_temp.length/((window.screen.width-24)/30))*30 + "px";
-		// document.getElementById("box-Palette").style.height = "150px";
-		// document.getElementById("box-Palette").style.marginTop = window.screen.height - (Math.ceil(color_temp.length/((window.screen.width-24)/30))*30+24) + "px";
-		// document.getElementById("box-Palette").style.marginLeft = (window.screen.width - (parseInt((window.screen.width-24)/30)*30+24))/2 + "px";
-		console.log(document.getElementById("box-Palette").offsetWidth);
+		iPhone_course();
 	}
 	
 	document.getElementById("choice").style.display = "none";
-	iPhone_course();
+	
 })
 
 
