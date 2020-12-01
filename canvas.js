@@ -816,6 +816,8 @@ iPhone_Btn.addEventListener("click",function(e){
 		if (canvas_Num.offsetWidth <= canvas_body.offsetWidth) {
 			canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
 			canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
+			textbook_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
+			textbook_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
 		}
 		
 
@@ -927,8 +929,8 @@ canvas_Num.addEventListener('touchmove', function(e) {
 					canvas_Num_NT = canvas_Num_NY - (canvas_Num_Y - canvas_Num_T)
 					canvas_Num.style.left = canvas_Num_NL + "px";
 					canvas_Num.style.top = canvas_Num_NT + "px";
-					
-					
+					textbook_Num.style.left = canvas_Num_NL + "px";
+					textbook_Num.style.top = canvas_Num_NT + "px";
 					// console.log(canvas_Num_X);
 					console.log(canvas_Num_NL);
 				}
