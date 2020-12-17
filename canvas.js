@@ -153,7 +153,7 @@ function function_Palette() {
 		var div = document.createElement("div");
 		div.style.background = color_temp[i];
 		div.index = i;
-		if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+		if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)){
 			div.style.width = "30px"
 			div.style.height = "30px"
 		}else{
@@ -219,7 +219,17 @@ canvas_body.addEventListener("click",function(e){
 	}
 })
 window.onload = function() { 
-	
+	var cover = document.getElementById("cover");
+	setTimeout(function(){cover.style.opacity = 0.9; }, 1000);
+	setTimeout(function(){cover.style.opacity = 0.8; }, 1010);
+	setTimeout(function(){cover.style.opacity = 0.7; }, 1020);
+	setTimeout(function(){cover.style.opacity = 0.6; }, 1030);
+	setTimeout(function(){cover.style.opacity = 0.5; }, 1040);
+	setTimeout(function(){cover.style.opacity = 0.4; }, 1050);
+	setTimeout(function(){cover.style.opacity = 0.3; }, 1060);
+	setTimeout(function(){cover.style.opacity = 0.2; }, 1070);
+	setTimeout(function(){cover.style.opacity = 0.1; }, 1080);
+	setTimeout(function(){cover.style.display = "none"; }, 1090);
 }
 var canvas_X;
 var canvas_Y;
@@ -456,7 +466,7 @@ function create() {
 	document.getElementById("scale").style.display = "flex";
 	color_temp = color_64;
 	function_Palette();
-	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
 		document.getElementById("box-Palette").style.width = parseInt((window.screen.width-24)/30)*30+24 + "px";
 		document.getElementById("box-Palette").style.height = Math.ceil(color_temp.length/((window.screen.width-24)/30))*30+24 + "px";
 		// document.getElementById("box-Palette").style.marginTop = window.screen.height - (Math.ceil(color_temp.length/((window.screen.width-24)/30))*30+24) + "px";
@@ -502,7 +512,7 @@ function scale_64() {
 function establish() {
 	if (canvas_state == "create") {
 		console.log(canvas_state)
-		if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
 			// box_canvas.style.width = window.screen.width + "px";
 			// box_canvas.style.height = window.screen.width + "px";
 			box_canvas.style.width = parseInt((window.screen.width-24)/30)*30+24 + "px"
@@ -557,7 +567,7 @@ function establish() {
 		}
 
 		
-		if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
 			box_canvas.style.height = parseInt((canvas.offsetHeight-document.getElementById("iPhone-Btn").offsetHeight-document.getElementById("box-Palette").offsetHeight)/2) + "px"
 			textbook.style.height = parseInt((canvas.offsetHeight-document.getElementById("iPhone-Btn").offsetHeight-document.getElementById("box-Palette").offsetHeight)/2) + "px"
 			for(var i = 0; i < 64; i++) {
@@ -608,7 +618,7 @@ course.addEventListener("click",function(e){
 		establish();
 		function_color_Arr();
 	}
-	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
 		document.getElementById("box-Palette").style.width = parseInt((window.screen.width-24)/30)*30+24 + "px";
 		document.getElementById("box-div-Palette").style.height = Math.ceil(color_temp.length/((window.screen.width-24)/30))*30 + "px";
 		iPhone_course();
@@ -701,7 +711,7 @@ function SaveAs5(imgURL) {
 	divdiv.close();
 }
 function download(strDataURI1) {
-	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
 		var link = document.getElementById("iPhone-IsA");
 	}else{
 		var link = document.getElementById("IsA");
@@ -730,7 +740,7 @@ function downLoadFn(url) {
 function fun_X() {
 	linshi.innerHTML = "";
 	shuchu.style.display = "none";
-	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
 		canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
 		canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
 	}
@@ -743,7 +753,7 @@ function fun_del() {
 		canvas_Arr[i].style.background = is_bj;
 		color_Arr.splice(i,1,is_bj)
 	}
-	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
 		canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
 		canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
 	}
@@ -752,7 +762,7 @@ function fun_del() {
 function fun_down() {
 	linshi.innerHTML = "";
 	shuchu.style.display = "none";
-	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
 		canvas_Num.style.left = (canvas_body.offsetWidth - canvas_Num.offsetWidth)/2 + "px";
 		canvas_Num.style.top = (canvas_body.offsetHeight - canvas_Num.offsetHeight)/2 + "px";
 	}
@@ -762,9 +772,13 @@ function menu() {
 	location.reload();
 }
 
+// var sUserAgent = navigator.userAgent.toLowerCase();
+// var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
 
-
-if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)) {
+	document.getElementById("cover").style.width = "370px";
+	document.getElementById("cover").style.height = "100%";
+	document.getElementById("cover").style.background = "#32445a";
 	canvas.style.height = document.body.offsetHeight*0.95 + "px";
 	document.getElementById("pattern").className = "iPhone-pattern";
 	document.getElementById("course").className = "iPhone-course";
@@ -974,8 +988,6 @@ function iPhone_course() {
 	textbook.style.marginTop = "6px";
 	textbook.style.marginLeft = 0;
 }
-
-
 
 
 
